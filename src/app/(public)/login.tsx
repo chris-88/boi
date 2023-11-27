@@ -1,14 +1,15 @@
-import { Button, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Link, router } from "expo-router";
+import { Button, Text, View } from "react-native";
+import { Link } from "expo-router";
+import { useAuth } from "../../context/AuthContext";
 
 const Page = () => {
+  const { onLogin } = useAuth();
+
   return (
     <View>
-      <Link href="/(private)/one" replace asChild>
-        <Button title="Log In" />
-      </Link>
-      <Link href="/register" asChild>
+      <Text>Login Page</Text>
+      <Button title="Login" onPress={onLogin} />
+      <Link href="/(public)/register" asChild>
         <Button title="Register" />
       </Link>
     </View>

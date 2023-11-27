@@ -1,16 +1,11 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
-import * as SecureStore from "expo-secure-store";
+import { createContext, useContext, useState } from "react";
 
 interface AuthProps {
-  authState?: { token: string | null; authenticated: boolean | null };
-  onRegister?: (email: string, password: string) => Promise<any>;
-  onLogin?: (email: string, password: string) => Promise<any>;
+  authState?: { authenticated: boolean | null };
+  onLogin?: () => Promise<any>;
   onLogout?: () => Promise<any>;
 }
 
-const TOKEN_KEY = "my-jwt";
-export const API_URL = "https://api.developbetterapps.com/";
 const AuthContext = createContext<AuthProps>({});
 
 export const useAuth = () => {
@@ -19,96 +14,26 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: any) => {
   const [authState, setAuthState] = useState<{
-    token: string | null;
     authenticated: boolean | null;
   }>({
-    token: null,
     authenticated: null,
   });
 
-  useEffect(() => {
-    // Check if the user is authenticated
-    const loadToken = async () => {
-      try {
-        const token = await SecureStore.getItemAsync(TOKEN_KEY);
-        console.log("stored token", token);
-
-        if (token) {
-          axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
-          setAuthState({
-            token,
-            authenticated: true,
-          });
-        } else {
-          setAuthState({
-            token: null,
-            authenticated: false,
-          });
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    loadToken();
-  }, []);
-
-  const register = async (email: string, password: string) => {
-    try {
-      // register the user
-      return await axios.post(`${API_URL}/users`, { email, password });
-    } catch (e) {
-      return { error: true, msg: (e as any).response.data.msg };
-    }
-  };
-
-  const login = async (email: string, password: string) => {
-    try {
-      // login the user
-      const result = await axios.post(`${API_URL}/auth`, { email, password });
-
-      console.log(" ~ file: AuthContext.tsx:41 ~ login ~ result", result);
-
-      // Update the auth state
-      setAuthState({
-        token: result.data.token,
-        authenticated: true,
-      });
-
-      // Update the HTTP headers
-      axios.defaults.headers.common[
-        "Authorization"
-      ] = `Bearer ${result.data.token}`;
-
-      // Store the token in secure storage
-      await SecureStore.setItemAsync(TOKEN_KEY, result.data.token);
-
-      return result;
-    } catch (e) {
-      return { error: true, msg: (e as any).response.data.msg };
-    }
+  const login = async () => {
+    // Update the auth state
+    setAuthState({
+      authenticated: true,
+    });
   };
 
   const logout = async () => {
-    try {
-      // Remove the token from secure storage
-      await SecureStore.deleteItemAsync(TOKEN_KEY);
-
-      // Update the HTTP headers
-      axios.defaults.headers.common["Authorization"] = "";
-
-      //reset the auth state
-      setAuthState({
-        token: null,
-        authenticated: false,
-      });
-    } catch (e) {
-      console.log(e);
-    }
+    //reset the auth state
+    setAuthState({
+      authenticated: false,
+    });
   };
 
   const value = {
-    onRegister: register,
     onLogin: login,
     onLogout: logout,
     authState,

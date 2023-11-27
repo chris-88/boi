@@ -1,14 +1,12 @@
 import { View, Text, Button } from "react-native";
-import React from "react";
-import { Link } from "expo-router";
+import { useAuth } from "../../context/AuthContext";
 
 const Page = () => {
+  const { onLogout } = useAuth();
   return (
     <View>
-      <Text>Tabs Page One</Text>
-      <Link href="/" replace asChild>
-        <Button title="Log Out" />
-      </Link>
+      <Text>This is the home page</Text>
+      <Button title="Log Out" onPress={onLogout} />
     </View>
   );
 };

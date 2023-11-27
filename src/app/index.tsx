@@ -1,13 +1,7 @@
-import { Button, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Link, router } from "expo-router";
+import { Text } from "react-native";
 
 const Page = () => {
-  return (
-    <View>
-      <Text>Entry Point</Text>
-    </View>
-  );
+  return <Text>If you see this page something is wrong...</Text>;
 };
 
 export default Page;

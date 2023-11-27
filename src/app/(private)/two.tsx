@@ -4,7 +4,7 @@ import React from "react";
 const Page = () => {
   return (
     <View>
-      <Text>Tabs Page Two</Text>
+      <Text>This is the Profile page</Text>
     </View>
   );
 };
