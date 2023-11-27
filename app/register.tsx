@@ -1,12 +1,12 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const Page = () => {
+const Register = () => {
   return (
     <View>
-      <Text>Tabs Page Two</Text>
+      <Text>Register</Text>
     </View>
   );
 };
 
-export default Page;
+export default Register;
