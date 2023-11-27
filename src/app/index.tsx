@@ -5,16 +5,9 @@ import { Link, router } from "expo-router";
 const Page = () => {
   return (
     <View>
-      <Link href="/one" replace asChild>
-        <Button title="Log In" />
-      </Link>
-      <Link href="/register" asChild>
-        <Button title="Register" />
-      </Link>
+      <Text>Entry Point</Text>
     </View>
   );
 };
 
 export default Page;
-
-const styles = StyleSheet.create({});
