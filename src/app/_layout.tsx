@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { Slot, useRouter, useSegments } from "expo-router";
+import { useEffect } from "react";
+import { Slot, useRouter } from "expo-router";
 import { AuthProvider, useAuth } from "../context/AuthContext";
 
 const InitialLayout = () => {
-  const { authState, onLogout } = useAuth();
+  const { authState } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const InitialLayout = () => {
 
 const Layout = () => {
   return (
-    //wrap the entire app in the AuthProvider
+    //wrap the entire app in the AuthProvider to protect the private routes
     <AuthProvider>
       <InitialLayout />
     </AuthProvider>
