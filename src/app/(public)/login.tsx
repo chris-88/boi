@@ -1,19 +1,31 @@
-import { Button } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Link } from "expo-router";
+// Context
 import { useAuth } from "../../context/AuthContext";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useTheme } from "../../context/ThemeContext";
+//Components
+import BOI_Button from "../../components/BOI_Button";
 
-const Page = () => {
+const Page: React.FC = () => {
+  const { theme } = useTheme();
   const { onLogin } = useAuth();
 
   return (
-    <SafeAreaView>
-      <Button title="Login" onPress={onLogin} />
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <BOI_Button title="Login" onPress={onLogin} />
       <Link href="/(public)/register" asChild>
-        <Button title="Register" />
+        <BOI_Button title="Register" />
       </Link>
-    </SafeAreaView>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
 
 export default Page;
