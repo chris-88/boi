@@ -36,16 +36,24 @@ const BOI_SelectAccount: React.FC<BOI_SelectAccountProps> = ({
         ]}
         onPress={handlePress}
       >
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <View>
-            <Text style={{ color: theme.adBlue, fontSize: 14 }}>
+            <Text style={{ color: theme.adBlue, fontSize: 20 }}>
               {accountName}
             </Text>
-            <Text style={{ color: theme.logoBlue, fontSize: 35 }}>
-              € {balance}
-            </Text>
+            <Text style={{ color: "grey" }}>~{ibanLastFourDigits}</Text>
           </View>
-          <Text style={{ color: "grey" }}>~{ibanLastFourDigits}</Text>
+          <Text
+            style={{ color: theme.logoBlue, fontSize: 28, fontWeight: "300" }}
+          >
+            € {balance}
+          </Text>
         </View>
       </TouchableOpacity>
 
