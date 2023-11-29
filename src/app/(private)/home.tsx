@@ -1,28 +1,18 @@
-import { View, Text, StyleSheet } from "react-native";
-//Context
-import { useTheme } from "../../context/ThemeContext";
+import { View, Text } from "react-native";
+//Components
 import BOI_Header from "../../components/BOI_Header";
 import BOI_TopBarNav from "../../components/BOI_TopBarNav";
+import BOI_NavBar from "../../components/BOI_NavBar";
 
 const Page = () => {
-  const { theme } = useTheme();
-
   return (
-    <>
+    <View style={{ flex: 0 }}>
       <BOI_Header title="Home" />
-      <BOI_TopBarNav />
-      {/* <View style={[styles.container, { backgroundColor: theme.error }]}>
-        <Text>This is the Home page</Text>
-      </View> */}
-    </>
+      {/* <BOI_TopBarNav /> */}
+      <BOI_NavBar />
+      <Text>This is the Home page</Text>
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-  },
-});
 
 export default Page;

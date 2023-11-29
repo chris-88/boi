@@ -15,6 +15,7 @@ const Page = () => {
       <BOI_Header title="Services" />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
         <Text>This is the Services page</Text>
+        <Text>This will be used for the CMS POC</Text>
       </View>
     </>
   );

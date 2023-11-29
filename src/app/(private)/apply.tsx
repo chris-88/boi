@@ -11,6 +11,7 @@ const Page = () => {
       <BOI_Header title="Apply" />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
         <Text>This is the Apply page</Text>
+        <Text>This will be used for the Native integration POC</Text>
       </View>
     </>
   );

@@ -61,12 +61,12 @@ const BOI_TopBarNav: React.FC<BOI_TopBarNavProps> = ({ initialIndex = 0 }) => {
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: "#fff", // Set your desired background color
-    elevation: 0, // Remove shadow on Android
-    shadowOpacity: 0, // Remove shadow on iOS
+    backgroundColor: "#fff",
+    elevation: 0,
+    shadowOpacity: 0,
   },
   indicator: {
-    backgroundColor: "#0000FF", // Set your desired indicator color
+    backgroundColor: "#0000FF",
   },
 });
 
