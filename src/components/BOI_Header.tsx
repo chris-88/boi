@@ -25,7 +25,7 @@ const BOI_Header: React.FC<BOI_HeaderProps> = ({ title }) => {
     >
       <Text style={[styles.title, { color: theme.text }]}>{title}</Text>
       <TouchableOpacity onPress={toggleModal}>
-        <Feather name="help-circle" size={24} color="black" />
+        <Feather name="help-circle" size={24} color={theme.text} />
       </TouchableOpacity>
       {/* TODO: Replace with your actual ModalScreen component */}
       {/* <Modal isVisible={isModalVisible} onRequestClose={toggleModal}>

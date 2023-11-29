@@ -1,13 +1,14 @@
 import { View, Text, StyleSheet } from "react-native";
 //Context
 import { useTheme } from "../context/ThemeContext";
+import BOI_AccountList from "../components/BOI_AccountList";
 
 const AccountScreen = () => {
   const { theme } = useTheme();
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text>This is the Accounts page</Text>
+      <BOI_AccountList />
     </View>
   );
 };
@@ -15,8 +16,7 @@ const AccountScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    padding: 20,
   },
 });
 

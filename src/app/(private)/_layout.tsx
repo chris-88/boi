@@ -17,6 +17,7 @@ const Layout = () => {
           ),
           tabBarShowLabel: false,
           tabBarActiveTintColor: theme.logoBlue,
+          tabBarInactiveTintColor: theme.primary,
         }}
       />
       <Tabs.Screen
@@ -28,6 +29,7 @@ const Layout = () => {
           ),
           tabBarShowLabel: false,
           tabBarActiveTintColor: theme.logoBlue,
+          tabBarInactiveTintColor: theme.primary,
         }}
       />
       <Tabs.Screen
@@ -39,6 +41,7 @@ const Layout = () => {
           ),
           tabBarShowLabel: false,
           tabBarActiveTintColor: theme.logoBlue,
+          tabBarInactiveTintColor: theme.primary,
         }}
       />
       <Tabs.Screen
@@ -50,6 +53,7 @@ const Layout = () => {
           ),
           tabBarShowLabel: false,
           tabBarActiveTintColor: theme.logoBlue,
+          tabBarInactiveTintColor: theme.primary,
         }}
       />
     </Tabs>
