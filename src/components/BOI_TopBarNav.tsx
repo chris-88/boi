@@ -3,49 +3,15 @@ import { View, StyleSheet, Text } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 //Icons
 import { Feather } from "@expo/vector-icons";
+//Screens
+import { Screens } from "../screens";
+const Account = () => <Screens.Account />;
+const Cards = () => <Screens.Cards />;
+const Payments = () => <Screens.Payments />;
 
 interface BOI_TopBarNavProps {
   initialIndex?: number;
 }
-
-const AccountScreen = () => (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: "#fff",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    <Text>This is the Accounts page</Text>
-  </View>
-);
-
-const CardsScreen = () => (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: "#fff",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    <Text>This is the Cards page</Text>
-  </View>
-);
-
-const PaymentsScreen = () => (
-  <View
-    style={{
-      flex: 1,
-      backgroundColor: "#fff",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    <Text>This is the Payments page</Text>
-  </View>
-);
 
 const BOI_TopBarNav: React.FC<BOI_TopBarNavProps> = ({ initialIndex = 0 }) => {
   const [index, setIndex] = useState(initialIndex);
@@ -56,9 +22,9 @@ const BOI_TopBarNav: React.FC<BOI_TopBarNavProps> = ({ initialIndex = 0 }) => {
   ]);
 
   const renderScene = SceneMap({
-    account: AccountScreen,
-    cards: CardsScreen,
-    payments: PaymentsScreen,
+    account: Account,
+    cards: Cards,
+    payments: Payments,
   });
 
   interface Route {
