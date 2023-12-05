@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import WebView from "react-native-webview";
 // Context
 import { useTheme } from "../../context/ThemeContext";
